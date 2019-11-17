@@ -1,0 +1,24 @@
+plugins {
+	id 'java'
+}
+
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'rnd.pattern.blackboard.autonav.AutoNavBlackBoardFeeder'
+    )
+  }
+}
+
+group = 'example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
